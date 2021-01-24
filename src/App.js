@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from "react";
+import React,{useEffect} from "react";
 import './App.css';
 import Login from './Login';
 import {getTokenFromUrl} from "./spotify";
@@ -29,12 +29,17 @@ function App() {
       })
       spotify.setAccessToken(_token);
       spotify.getMe().then(user => {
-
         dispatch({
           type : "SET_USER",
           user : user
         })
-        
+      })
+
+      spotify.getUserPlaylists().then(_playlists => {
+        dispatch({
+          type : "SET_PLAYLISTS",
+          playlists : _playlists
+        })
       })
     }
     
