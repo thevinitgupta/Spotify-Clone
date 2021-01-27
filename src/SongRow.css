@@ -1,0 +1,40 @@
+.songRow {
+    margin-left: 20px;
+    padding : 20px;
+    display : flex;
+    align-items: center;
+    z-index : 100;
+    color: white;
+}
+
+.songRow__info {
+    margin-left: 20px;
+    flex: 1;
+    flex-wrap: nowrap;
+    margin-right: 5px;
+}
+.songRow__info__trackInfo > h1 {
+    font-size: 16px;
+}
+.songRow__info__trackInfo > p {
+    font-size: 14px;
+    margin-top: 3px;
+    color: gray;
+}
+.songRow__left {
+    flex: 0.6;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+.songRow__album>img {
+    height: 40px;
+    width: 40px;
+}
+.songRow__albumName {
+    flex: 0.4;
+}
+.songRow:hover{
+    cursor: pointer;
+    background-color: rgba(92, 91, 91, 0.281);
+}
