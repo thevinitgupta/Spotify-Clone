@@ -1,3 +1,4 @@
+
 html {
     background-color: #000;
 }
@@ -6,7 +7,15 @@ html {
     padding: 30px;
     color: #fff;
     height: 100vh;
-    background: linear-gradient(#ff9b93,rgba(0,0,0,1));
+    overflow-y: overlay;
+    background: linear-gradient(#d680a4,rgba(0,0,0,1));
+}
+.body::-webkit-scrollbar{
+    background: transparent;
+    scrollbar-width: 5px;
+}
+.body::-webkit-scrollbar-thumb {
+    background-color: #707a7e69;
 }
 .body__info {
     display: flex;
@@ -29,11 +38,26 @@ html {
     margin: 20px -30px;
     background: linear-gradient(rgba(10,10,10,0.3),rgba(0,0,0,1));
 }
+.body__songs__head {
+    display: flex;
+    justify-content: space-around;
+    color: gray;
+}
+.body__songs__head>div {
+    font-size: 12px;
+    text-align: left;
+}
+.body__songs>hr {
+    border: 1px solid #5c5b5bb0;
+    width: 90%;
+    margin: 10px auto;
+}
 .body__shuffle {
     font-size: 80px !important;
     margin-left: 50px;
     margin-top: 20px;
     margin-bottom: 20px;
+    color: #1db954;
 }
 .body__shuffle:hover {
     transition: 100ms transform ease-in;
@@ -44,6 +68,7 @@ html {
 }
 .body__infoText > h2 {
     font-size: 48px;
+    font-weight: 900;
     margin-bottom: 10px;
 }
 .body__infoText > p {

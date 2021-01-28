@@ -1,7 +1,10 @@
 import React from 'react'
 import "./SongRow.css"
 
-function SongRow({track}) {
+function SongRow({track,item}) {
+    let dateAdded = new Date(item["added_at"]);
+    //dateAdded = dateAdded.substring(0,dateAdded.length)
+    dateAdded = dateAdded.toString().substring(4,15);
     return (
         <div className="songRow">
         <div className="songRow__left" >
@@ -20,7 +23,10 @@ function SongRow({track}) {
         </div>
         
         <div className="songRow__albumName">
-            <p>{track.album.name}</p>
+            <a className="songRow__albumLink" href={track.album.href}>{track.album.name}</a>
+        </div>
+        <div className="songRow__dateAdded">
+            <p>{dateAdded}</p>
         </div> 
         </div>
     )

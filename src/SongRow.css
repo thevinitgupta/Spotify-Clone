@@ -22,7 +22,7 @@
     color: gray;
 }
 .songRow__left {
-    flex: 0.6;
+    flex: 0.4;
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
@@ -34,7 +34,18 @@
 .songRow__albumName {
     flex: 0.4;
 }
+.songRow__albumLink {
+    text-decoration: none;
+    color: #fff;
+}
+.songRow__albumLink:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
 .songRow:hover{
     cursor: pointer;
     background-color: rgba(92, 91, 91, 0.281);
+}
+.songRow__dateAdded {
+    flex: 0.2;
 }

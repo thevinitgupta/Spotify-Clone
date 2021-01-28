@@ -2,8 +2,9 @@ import React from 'react';
 import "./Body.css"
 import { useDataLayerValue } from './DataLayer';
 import Header from "./Header";
-import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import PlayCircleFilledWhiteIcon from '@material-ui/icons/PlayCircleFilledWhite';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+//import FavoriteIcon from '@material-ui/icons/Favorite';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import SongRow from './SongRow';
 
@@ -23,12 +24,18 @@ function Body({spotify}) {
 
           <div className="body__songs">
             <div className="body__icons">
-              <PlayCircleFilledIcon className="body__shuffle"/>
-              <FavoriteIcon fontSize="large"/>
+              <PlayCircleFilledWhiteIcon className="body__shuffle"/>
+              <FavoriteBorderOutlinedIcon fontSize="large"/>
               <MoreHorizIcon />            
               </div>
+              <div className="body__songs__head">
+                <div><p>TITLE</p></div>
+                <div><p>ALBUM</p></div>
+                <div><p>DATE ADDED</p></div>
+              </div>
+              <hr/>
               {discover_weekly?.tracks.items.map((item) => {
-                return (<SongRow track={item.track}/>)
+                return (<SongRow track={item.track} item={item}/>)
               })}
           </div>
         </div>
