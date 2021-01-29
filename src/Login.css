@@ -5,7 +5,9 @@
     height: 100vh;
 }
 .login > img {
+    object-fit: contain;
     width: 100%;
+    max-width: 500px;
 }
 .login >a {
     padding: 20px;

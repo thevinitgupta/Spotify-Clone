@@ -6,10 +6,10 @@ import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import LibraryMusicRoundedIcon from '@material-ui/icons/LibraryMusicRounded';
 import {useDataLayerValue} from "./DataLayer";
 
-function Sidebar() {
+function Sidebar({index}) {
     const [{playlists},dispatch] = useDataLayerValue();
     return (
-        <div className="sidebar">
+        <div className="sidebar" style={{zIndex : index}} >
             <img className="sidebar__logo" src="https://getheavy.com/wp-content/uploads/2019/12/spotify2019-830x350.jpg" alt="spotify-logo"></img>
             <SidebarOption title="Home" Icon={HomeSharpIcon}/>
             <SidebarOption title="Search" Icon={SearchRoundedIcon}/>

@@ -1,3 +1,29 @@
 .player__body {
     display: flex;
+    min-width: 300px;
+}
+.player__menu__btn {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.63);
+    border-radius: 50%;
+    display: none;
+}
+@media only screen and (max-width: 700px){
+    .player__body {
+        position: relative;
+    }
+    .player__menu__btn {
+        display: inline-block;
+        position: absolute;
+        left: -10px;
+        z-index: 5;
+    }
+    .sidebar {
+        position: absolute;
+        z-index: 0;
+    }
+    .body {
+        position: absolute;
+        z-index: 2;
+    }
 }
