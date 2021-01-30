@@ -35,7 +35,7 @@ function Body({spotify}) {
               </div>
               <hr/>
               {discover_weekly?.tracks.items.map((item) => {
-                return (<SongRow key={item.track.id} track={item.track}  item={item}/>)
+                return (<SongRow key={item.track.id} track={item.track} url={item.track.preview_url}  item={item}/>)
               })}
           </div>
         </div>

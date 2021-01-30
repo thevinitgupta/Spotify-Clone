@@ -2,6 +2,7 @@
      user : null,
      playlists :[],
      playing : false,
+     currentSongUrl : null,
      item : null,
      //Change to null after production
      token : null
@@ -32,6 +33,16 @@
                  ...state,
                  discover_weekly : action.discover_weekly
              }
+        case "SET_SONG" :
+            return {
+                ...state,
+                currentSongUrl : action.currentSongUrl
+            }
+        case "SET_ITEM" : 
+        return {
+            ...state,
+            item : action.item
+        }
          default : 
             return state;
      }

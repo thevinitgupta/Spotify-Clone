@@ -1,12 +1,31 @@
 import React from 'react'
+import { useDataLayerValue } from './DataLayer';
 import "./SongRow.css"
 
-function SongRow({key,track,item}) {
+function SongRow({key,track,url,item}) {
     let dateAdded = new Date(item["added_at"]);
     //dateAdded = dateAdded.substring(0,dateAdded.length)
     dateAdded = dateAdded.toString().substring(4,15);
+    const [{currentSongUrl},dispatch] = useDataLayerValue();
     return (
-        <div className="songRow" >
+        <div className="songRow" onClick={()=>{
+            dispatch({
+                    type : "SET_SONG",
+                    currentSongUrl : null
+                });
+            if(track){
+                dispatch({
+                    type: "SET_ITEM",
+                    item : track
+                })
+            }
+            if(url) {
+                dispatch({
+                    type : "SET_SONG",
+                    currentSongUrl : url
+                });
+            }
+        }}>
         <div className="songRow__left" >
         <div className="songRow__album">
         <img src={track.album.images[0].url} alt=""/>
