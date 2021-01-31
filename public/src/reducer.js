@@ -5,7 +5,7 @@
      currentSongUrl : null,
      item : null,
      //Change to null after production
-     token : null
+     token : null,
      //"BQB3h3vE45e3isMTLZA2jq440MZRXKJBPRO2AKhhATqsiRNr314L3M3_TvLKEr23LVd_alL8KDKLHd0lAI3Six8GnaATEWTsLV7OYZbbWjwAlKyKDu-zDPpb876iDWdaaFb171OelsI1eS223uW9YaoMcjkypUPE7v85EAo"
  }
 

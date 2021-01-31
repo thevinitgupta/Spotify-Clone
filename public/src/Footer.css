@@ -6,12 +6,16 @@
     justify-content: space-between;
     height: 65px;
     width: 98%;
-    background-color: #282828;
+    background-color:#181818;
     padding: 20px;
 }
 .footer__right * .MuiSlider-root {
     color : #1db954;
     
+}
+#song__player {
+    background: none;
+    color: none;
 }
 .footer__left {
     flex : 0.3;
@@ -46,7 +50,6 @@
 }
 .footer__center__controls{
     display : flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     max-width: 100%;

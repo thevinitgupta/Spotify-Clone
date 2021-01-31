@@ -9,10 +9,11 @@ function SongRow({key,track,url,item}) {
     const [{currentSongUrl},dispatch] = useDataLayerValue();
     return (
         <div className="songRow" onClick={()=>{
-            dispatch({
+            if(currentSongUrl){dispatch({
                     type : "SET_SONG",
                     currentSongUrl : null
                 });
+            }
             if(track){
                 dispatch({
                     type: "SET_ITEM",
@@ -22,7 +23,7 @@ function SongRow({key,track,url,item}) {
             if(url) {
                 dispatch({
                     type : "SET_SONG",
-                    currentSongUrl : url
+                    currentSongUrl : url,
                 });
             }
         }}>

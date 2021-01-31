@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import "./Footer.css";
 import PlayCircleOutlineOutlinedIcon from '@material-ui/icons/PlayCircleOutlineOutlined';
 import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
@@ -13,26 +13,23 @@ import { useDataLayerValue } from './DataLayer';
 
 function Footer() {
     const [{currentSongUrl,item},dispatch] = useDataLayerValue();
-    const [audio] = useState(new Audio(currentSongUrl));
+    const audio  = document.querySelector("audio");
     const [isPlaying,setIsPlaying] = useState(false);
-    
-    
-    useEffect(() => {
-        isPlaying ? audio.play() : audio.pause();
-      },
-      [isPlaying,audio]
-    );
+    function handleAudio(){
+      if(!isPlaying){
+        if(audio.readyState>2) {
+          audio.play();
+          setIsPlaying(true);
+        }
+      }
+      else {
+        audio.pause();
+        setIsPlaying(false);
+        audio.removeEventListener("ended",handleAudio)
+      }
+    }
+    audio.addEventListener("ended",handleAudio)
   
-    useEffect(() => {
-      audio.addEventListener('ended', () => setIsPlaying(false));
-      dispatch({
-          type : "SET_SONG",
-          currentSongUrl : null
-      })
-      return () => {
-        audio.removeEventListener('ended', () => setIsPlaying(false));
-      };
-    }, [audio,dispatch]);
     return (
         <div className="footer">
             <div className="footer__left">
@@ -48,13 +45,17 @@ function Footer() {
             <ShuffleOutlinedIcon className="footer__green"/>
 
               <SkipPreviousRoundedIcon className="footer__icon" id="previous_audio"/>
-              {isPlaying && currentSongUrl!==null ? <PauseCircleOutlineIcon fontSize="large" onClick={()=>setIsPlaying(false)} className="footer__icon" /> :<PlayCircleOutlineOutlinedIcon fontSize="large" onClick={()=>setIsPlaying(true)}  className="footer__icon" id="play"/>}
+              {isPlaying && currentSongUrl!==null ? 
+              <PauseCircleOutlineIcon fontSize="large" onClick={handleAudio}  className="footer__icon" /> :
+              <PlayCircleOutlineOutlinedIcon fontSize="large" onClick={handleAudio}  className="footer__icon" id="play"/>
+              }
               
               <SkipNextRoundedIcon className="footer__icon" id="next_audio"/>
               <RepeatRoundedIcon className="footer__green"/>
             </div>
               <div className="footer__center__playback">
-                  <audio src={currentSongUrl} type="audio/mp3" id="song__player" autoPlay={true} controls={false}>Song Format Not Supported</audio>
+                  <audio src={currentSongUrl} type="audio/mp3" id="song__player" autoPlay={true} controls={false}>Audio format not supported!</audio>
+
               </div>
             </div>
             <div className="footer__right">
